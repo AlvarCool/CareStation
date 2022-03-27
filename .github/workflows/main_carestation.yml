@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'CareStation'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9B3FFCFA3AB14CABA3E65CFD1AB1B7AB }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_13718FC2FD9A42518F6E30561F1F8CD8 }}
           package: .
