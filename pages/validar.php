@@ -1,13 +1,13 @@
 <?php
 
     $usuario = $_POST['usuario'];
-    $contrasenia = $_POST['contrasenia'];
+    $contraseña = $_POST['contraseña'];
     session_start();
     $_SESSION['usuario']=$usuario;
 
     $conexion = mysqli_connect("carestation-db.mysql.database.azure.com","alvar@carestation-db","S3gurid4d","carestation","3306");
 
-    $consulta ="SELECT*FROM usuarios where usuario = '$usuario' and contrasenia = 'contrasenia'";
+    $consulta ="SELECT*FROM usuarios where usuario = '$usuario' and $contraseña = 'contraseña'";
     $resultado=mysqli_query($conexion,$consulta);
 
     $filas=mysqli_num_rows($resultado);
