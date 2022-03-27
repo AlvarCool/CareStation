@@ -5,7 +5,7 @@
     session_start();
     $_SESSION['usuario']=$usuario;
 
-    $conexion = mysqli_connect("carestation-db.mysql.database.azure.com","alvar","S3gurid4d","carestation","3306");
+    $conexion = mysqli_connect("carestation-db.mysql.database.azure.com","alvar@carestation-db","S3gurid4d","carestation","3306");
 
     $consulta ="SELECT*FROM usuarios where usuario = '$usuario' and contrasenia = 'contrasenia'";
     $resultado=mysqli_query($conexion,$consulta);
