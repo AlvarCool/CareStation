@@ -1,7 +1,7 @@
 <?php
 
 $host = 'carestation-db.mysql.database.azure.com';
-$username = 'alvar@carestation-dbc';
+$username = 'alvar@carestation-db';
 $password = 'S3gurid4d';
 $db_name = 'carestation';
 
