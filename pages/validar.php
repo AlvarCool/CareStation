@@ -1,35 +1,25 @@
 <?php
 
-    
-    $usuario = $_POST['usuario'];
-    $contraseña = $_POST['contraseña'];
-    session_start();
-    $_SESSION['usuario']=$usuario;
-    
-    $con=mysqli_init();
-    $conexion=mysqli_connect("carestation-db.mysql.database.azure.com", "alvar@carestation-db","S3gurid4d", "carestation", 3306);
-    if (mysqli_connect_errno($conexion)) {
-    die('Failed to connect to MySQL: '.mysqli_connect_error());
-    }
+$host = 'carestation-db.mysql.database.azure.com';
+$username = 'alvar@carestation-dbc';
+$password = 'S3gurid4d';
+$db_name = 'carestation';
 
-    $consulta ="SELECT*FROM usuarios where usuario = '$usuario' and $contraseña = 'contraseña'";
-    $resultado=mysqli_query($conexion,$consulta);
 
-    $filas=mysqli_num_rows($resultado);
+//Establishes the connection
+$conn = mysqli_init();
+mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
+if (mysqli_connect_errno($conn)) {
+die('Failed to connect to MySQL: '.mysqli_connect_error());
+}
 
-    if($filas){
-        echo "funca";
-        //header("location:dashboard.php");
-    }else{
-        ?>
-        <?php
-        //include("index.php")
-        echo "no funca";
-        ?>
-        <h1 class="bad">ERROR DE AUTENTICACION</h1>
-        <?php
-    }
-    mysqli_free_result($resultado);
-    mysqli_close($conexion);
+//Run the Select query
+printf("Reading data from table: \n");
+$res = mysqli_query($conn, 'SELECT * FROM usuarios');
+while ($row = mysqli_fetch_assoc($res)) {
+var_dump($row);
+}
 
+//Close the connection
+mysqli_close($conn);
 ?>
