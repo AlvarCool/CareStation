@@ -1,12 +1,11 @@
 <?php
 
+    
     $usuario = $_POST['usuario'];
     $contraseña = $_POST['contraseña'];
     session_start();
     $_SESSION['usuario']=$usuario;
-
-    $conexion = mysqli_connect("carestation-db.mysql.database.azure.com","alvar@carestation-db","S3gurid4d","carestation","3306");
-
+    $conexion=mysqli_init(); mysqli_ssl_set($con, NULL, NULL, {ca-cert filename}, NULL, NULL); mysqli_real_connect($con, "carestation-db.mysql.database.azure.com", "alvar@carestation-db", {S3gurid4d}, {carestation}, 3306);
     $consulta ="SELECT*FROM usuarios where usuario = '$usuario' and $contraseña = 'contraseña'";
     $resultado=mysqli_query($conexion,$consulta);
 
@@ -24,4 +23,5 @@
     }
     mysqli_free_result($resultado);
     mysqli_close($conexion);
+
 ?>
