@@ -144,7 +144,7 @@
                         {
                             label: "Temperaturas maximas",
                             data: [0, 29, 33, 25, 26, 0],
-                            backgroundColor: "rgba(153,205,1,0.6)",
+                            backgroundColor: "rgba(217,66,2,0.6)",
                         },
                         ],
                     },
@@ -195,7 +195,7 @@
                         {
                             label: "Humedades maximas",
                             data: [0, 84, 86, 88, 81, 0],
-                            backgroundColor: "rgba(153,205,1,0.6)",
+                            backgroundColor: "rgba(3,196,226,0.6)",
                         },
                         ],
                     },
@@ -245,7 +245,7 @@
                         {
                             label: "Humedades de suelo maximas",
                             data: [0, 29, 24, 25, 22, 0],
-                            backgroundColor: "rgba(153,205,1,0.6)",
+                            backgroundColor: "rgba(195,109,24,0.6)",
                         },
                         ],
                     },
@@ -294,7 +294,7 @@
                         {
                             label: "Luz UV maximas",
                             data: [0, 29, 16, 39, 30, 0],
-                            backgroundColor: "rgba(153,205,1,0.6)",
+                            backgroundColor: "rgba(250,246,10,0.6)",
                         },
                         ],
                     },
