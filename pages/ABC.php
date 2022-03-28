@@ -1,5 +1,6 @@
 <?php
-    $conexion = mysqli_connect("localhost","root","","carestation","3306");
+
+    $conexion=mysqli_connect("carestation-db.mysql.database.azure.com", "alvar@carestation-db","S3gurid4d", "carestation", 3306);
     mysqli_set_charset($conexion,"utf8");
 
     $nombre = $_POST['nombre'];
