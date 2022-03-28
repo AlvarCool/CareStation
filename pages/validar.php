@@ -18,7 +18,7 @@
     $filas=mysqli_num_rows($resultado);
 
     if($filas){
-        echo "no funca";
+        echo "funca";
         //header("location:dashboard.php");
     }else{
         ?>
