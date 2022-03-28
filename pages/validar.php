@@ -18,11 +18,13 @@
     $filas=mysqli_num_rows($resultado);
 
     if($filas){
-        header("location:dashboard.php");
+        echo "no funca";
+        //header("location:dashboard.php");
     }else{
         ?>
         <?php
-        include("index.php")
+        //include("index.php")
+        echo "no funca";
         ?>
         <h1 class="bad">ERROR DE AUTENTICACION</h1>
         <?php
