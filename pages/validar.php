@@ -6,8 +6,7 @@
     session_start();
     $_SESSION['usuario']=$usuario;
 
-    $conexion=mysqli_init(); 
-    mysqli_real_connect($conexion, 'carestation-db.mysql.database.azure.com', 'alvar@carestation-db', 'S3gurid4d', 'carestation', 3306);
+    $conexion=mysqli_init("carestation-db.mysql.database.azure.com", "alvar@carestation-db","S3gurid4d", "carestation", 3306);
     if (mysqli_connect_errno($conexion)) {
     die('Failed to connect to MySQL: '.mysqli_connect_error());
     }
