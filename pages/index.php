@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,7 +41,7 @@
                       <input type="password" class="form-control form-control-lg" placeholder="Contraseña" aria-label="Password" name="contraseña">
                     </div>
                     <div class="text-center">
-                      <button type="submit" value="ingresar" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Iniciar sesion</button>
+                      <button type="submit" name="btningresar" value="ingresar" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Iniciar sesion</button>
                     </div>
                   </form>
                 </div>
@@ -53,7 +52,7 @@
           background-size: cover;">
                 <span class="mask bg-gradient-primary opacity-6"></span>
                 <h4 class="mt-5 text-white font-weight-bolder position-relative">"Tablero de administracion"</h4>
-                <p class="text-white position-relative">En esta herramienta encontrara toda la informacion recopilada
+                <p class="text-white position-relative">En esta herramienta encontrara toda la infomracion recopilada
                 por los dispositvos IoT del proyecto CareStation.</p>
               </div>
             </div>

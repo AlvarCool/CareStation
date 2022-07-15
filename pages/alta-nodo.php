@@ -1,3 +1,15 @@
+
+<?php
+  session_start();
+  if(!isset($_SESSION['privilegio'])){
+      header("location: index.php");
+    }else{
+      if($_SESSION['privilegio'] != 1){
+        header("location: index.php");
+      }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,6 +70,14 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="../pages/alta-usuario.php">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Alta de usuarios</span>
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link active" href="../pages/alta-nodo.php">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
@@ -104,7 +124,7 @@
               <center><img class="mb-3 pb-3" src="../assets/img/brote.png" style="width: 100px; height: 100px;"></center>
                   <form action="ABC.php" method="POST">
                     <div class="mb-3 pb-3">
-                      <input type="text" class="form-control form-control-lg" placeholder="Nombre del nodo" name="nombre">
+                      <input type="text" class="form-control form-control-lg" placeholder="Nombre del nodo" name="nombrenodo">
                     </div>
                       <div class="form-check" style="padding-left: 150px;">
                         <label class="form-check-label">
@@ -116,7 +136,7 @@
                           Humedad
                         </label><br>
                         <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" value="1" style="margin-right: 30px; padding:12px;"name="humedad_suelo">
+                        <input class="form-check-input" type="checkbox" value="1" style="margin-right: 30px; padding:12px;"name="humedadrel">
                           Humedad de suelo
                         </label><br>
                         <label class="form-check-label">

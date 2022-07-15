@@ -1,3 +1,15 @@
+
+<?php
+  session_start();
+  if(!isset($_SESSION['privilegio'])){
+      header("location: index.php");
+    }else{
+      if($_SESSION['privilegio'] != 1){
+        header("location: index.php");
+      }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +18,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    CareStation | Graficas
+    CareStation | Informacion
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -18,11 +30,6 @@
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/argon-dashboard.css?v=2.0.0" rel="stylesheet" />
-    <link rel="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
@@ -55,11 +62,19 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="../pages/zan.php">
+          <a class="nav-link" href="../pages/zan.php">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Graficas</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="../pages/alta-usuario.php">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Alta de usuarios</span>
           </a>
         </li>
         <li class="nav-item">
@@ -88,7 +103,7 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pagina</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Graficas</li>
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Informacion</li>
           </ol>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
@@ -103,208 +118,27 @@
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
+              <h6>Alta de usuarios</h6>
             </div>
             <div class="card-body px-12 pt-5 pb-2">
-                <style>
-                    .container {
-                    width: 70%;
-                    margin: 15px auto;
-                    }
-                    body {
-                    text-align: center;
-                    color: blue;
-                    }
-                    h2 {
-                    text-align: center;
-                    font-family: "Verdana", sans-serif;
-                    font-size: 30px;
-                    }
-                </style>
-                <body>
-                    <canvas id="graf-temp">
-                    </canvas>
+              <center><img class="mb-3 pb-3" src="../assets/img/add-user.png" style="width: 100px; height: 100px;"></center>
+                  <form action="ABC.php" method="POST">
+                    <div class="mb-3 pb-3">
+                      <input type="text" class="form-control form-control-lg" placeholder="Nombre de usuario" name="usuario"><br>
+                      <input type="password" class="form-control form-control-lg" placeholder="Contraseña" name="contraseña">
                     </div>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" value="1" style="margin-right: 30px; padding:12px;"name="privilegio">
+                          Administrador
+                        </label>
+                      </div>
+                    <div class="text-center">
+                      <button type="submit" name="crear_usr" class="btn btn-lg btn-primary btn-lg w-70 mt-4 mb-0">CREAR</button>
                     </div>
-                </body>
-                
-                <script>
-                    var ctx = document.getElementById("graf-temp").getContext("2d");
-                    var myChart = new Chart(ctx, {
-                    type: "line",
-                    data: {
-                        labels: [
-                        "",
-                        "Lechuga",
-                        "Tomate",
-                        "Papa",
-                        "Zanahoria",
-                        "",
-                        ],
-                        datasets: [
-                        {
-                            label: "Temperaturas maximas",
-                            data: [0, 29, 33, 25, 26, 0],
-                            backgroundColor: "rgba(16,20,243,1.6)",
-                        },
-                        ],
-                    },
-                    });
-                </script>
+                  </form>
             </div>
           </div>
-          <div class="card mb-4">
-            <div class="card-header pb-0">
-            </div>
-            <div class="card-body px-12 pt-5 pb-2">
-                <style>
-                    .container {
-                    width: 70%;
-                    margin: 15px auto;
-                    }
-                    body {
-                    text-align: center;
-                    color: green;
-                    }
-                    h2 {
-                    text-align: center;
-                    font-family: "Verdana", sans-serif;
-                    font-size: 30px;
-                    }
-                </style>
-                <body>
-                    <canvas id="graf-hum">
-                    </canvas>
-                    </div>
-                    </div>
-                </body>
-                
-                <script>
-                    var ctx = document.getElementById("graf-hum").getContext("2d");
-                    var myChart = new Chart(ctx, {
-                    type: "line",
-                    data: {
-                        labels: [
-                        "",
-                        "Lechuga",
-                        "Tomate",
-                        "Papa",
-                        "Zanahoria",
-                        "",
-                        ],
-                        datasets: [
-                        {
-                            label: "Humedades maximas",
-                            data: [0, 84, 86, 88, 81, 0],
-                            backgroundColor: "rgba(153,205,1,0.6)",
-                        },
-                        ],
-                    },
-                    });
-                </script>
-            </div>
-          <div class="card mb-4">
-            <div class="card-header pb-0">
-            </div>
-            <div class="card-body px-12 pt-5 pb-2">
-                <style>
-                    .container {
-                    width: 70%;
-                    margin: 15px auto;
-                    }
-                    body {
-                    text-align: center;
-                    color: green;
-                    }
-                    h2 {
-                    text-align: center;
-                    font-family: "Verdana", sans-serif;
-                    font-size: 30px;
-                    }
-                </style>
-                <body>
-                    <canvas id="graf-hum-su">
-                    </canvas>
-                    </div>
-                    </div>
-                </body>
-                
-                <script>
-                    var ctx = document.getElementById("graf-hum-su").getContext("2d");
-                    var myChart = new Chart(ctx, {
-                    type: "line",
-                    data: {
-                        labels: [
-                        "",
-                        "Lechuga",
-                        "Tomate",
-                        "Papa",
-                        "Zanahoria",
-                        "",
-                        ],
-                        datasets: [
-                        {
-                            label: "Humedades de suelo maximas",
-                            data: [0, 29, 24, 25, 22, 0],
-                            backgroundColor: "rgba(153,205,1,0.6)",
-                        },
-                        ],
-                    },
-                    });
-                </script>
-          <div class="card mb-4">
-            <div class="card-header pb-0">
-            </div>
-            <div class="card-body px-12 pt-5 pb-2">
-                <style>
-                    .container {
-                    width: 70%;
-                    margin: 15px auto;
-                    }
-                    body {
-                    text-align: center;
-                    color: green;
-                    }
-                    h2 {
-                    text-align: center;
-                    font-family: "Verdana", sans-serif;
-                    font-size: 30px;
-                    }
-                </style>
-                <body>
-                    <canvas id="graf-uv">
-                    </canvas>
-                    </div>
-                    </div>
-                </body>
-                
-                <script>
-                    var ctx = document.getElementById("graf-uv").getContext("2d");
-                    var myChart = new Chart(ctx, {
-                    type: "line",
-                    data: {
-                        labels: [
-                        "",
-                        "Lechuga",
-                        "Tomate",
-                        "Papa",
-                        "Zanahoria",
-                        "",
-                        ],
-                        datasets: [
-                        {
-                            label: "Luz UV maximas",
-                            data: [0, 29, 16, 39, 30, 0],
-                            backgroundColor: "rgba(153,205,1,0.6)",
-                        },
-                        ],
-                    },
-                    });
-                </script>
-            </div>
-            </div>
-          </div>
-          </div>
-        </div>
         </div>
       </div>
     </div>
